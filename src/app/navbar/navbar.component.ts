@@ -19,7 +19,6 @@ export class NavbarComponent {
 
   // Establece el enlace activo y realiza el desplazamiento
   setActive(menuItem: string) {
-    this.activeMenu = menuItem; // Actualiza el menú activo
     document.getElementById(menuItem)?.scrollIntoView({ behavior: 'smooth' });
     this.menuOpen = false; // Cierra el menú en dispositivos móviles al seleccionar un enlace
   }
