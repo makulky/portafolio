@@ -14,5 +14,5 @@ import { ProyectosComponent } from "./proyectos/proyectos.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'portafolio';
+  
 }
