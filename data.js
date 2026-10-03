@@ -38,10 +38,7 @@ window.PORTFOLIO = {
     {
       name: "Sistema de Control Horario y Fichaje por Código QR",
       description: [
-        "Aplicación completa para la gestión y registro automatizado de jornadas laborales mediante escaneo de código QR único por empleado.",
-        "Programada en C# (POO) con validación en tiempo real, prevención de fichajes duplicados y cálculo automático de horas trabajadas.",
-        "Diseñada en MySQL para el almacenamiento seguro de usuarios, fichajes, accesos y marcas temporales (timestamps).",
-        "Administración: Panel interactivo para la gestión de altas/bajas de empleados y exportación de informes de asistencia."
+        "Aplicación completa para la gestión y registro automatizado de jornadas laborales mediante escaneo de código QR único por empleado."
       ],
       stack: ["C#", ".NET", "MySQL"],
       link: "",
