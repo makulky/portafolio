@@ -26,6 +26,19 @@ window.PORTFOLIO = {
 
   projects: [
     {
+      name: "Agendalia",
+      description: [
+        "Agendalia es una agenda online multiempresa pensada para negocios que trabajan con citas (clínicas, centros de estética, consultas, talleres, academias…).",
+        "Cada empresa tiene su propio espacio aislado, con varios usuarios, y cada profesional gestiona su agenda, sus clientes y su página pública de reservas.",
+        "La interfaz está en español y los teléfonos sin prefijo se tratan como españoles (+34).",
+        "Cuenta de demo: prueba@prueba.com - 123456"
+      ],
+      stack: ["TypeScript", "React", "Node.js", "Tailwind CSS", "Supabase", "Zod"],
+      link: "https://github.com/makulky/agendalia",
+      demo: "https://agendalia-delta.vercel.app/"
+    },
+
+    {
       name: "Astra Simulator",
       description: [
         "Astra es una web educativa con laboratorios visuales en 3D para entender cómo funcionan planetas, estrellas y agujeros negros.",
