@@ -26,6 +26,17 @@ window.PORTFOLIO = {
 
   projects: [
     {
+      name: "Astra Simulator",
+      description: [
+        "Astra es una web educativa con laboratorios visuales en 3D para entender cómo funcionan planetas, estrellas y agujeros negros.",
+        "En lugar de leer fórmulas, mueves los parámetros y ves al momento qué cambia y por qué. Está disponible en español e inglés."
+      ],
+      stack: ["TypeScript", "React", "Vite", "Three.js", "React Three Fiber", "Drei", "Zustand", "i18next", "Vitest"],
+      link: "https://github.com/makulky/astra",
+      demo: "https://astrasimulator.vercel.app/"
+    },
+
+    {
       name: "WebSec Analyzer",
       description: [
         "Aplicación web que analiza de forma pasiva la seguridad de un sitio y estima si es de confianza o un posible scam."
