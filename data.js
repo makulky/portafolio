@@ -20,7 +20,7 @@ window.PORTFOLIO = {
     links: [
       { label: "GitHub",   url: "https://github.com/makulky" },          // TODO
       { label: "LinkedIn", url: "https://www.linkedin.com/in/miguel-figuerola-alonso" }, // TODO
-      { label: "CV (PDF)", url: "#" }                                       // TODO
+      { label: "CV (PDF)", url: "https://makulky.github.io/portafolio/CV_Miguel_Figuerola_Alonso.pdf" }
     ]
   },
 
