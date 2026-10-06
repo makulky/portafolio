@@ -58,6 +58,17 @@ window.PORTFOLIO = {
       link: "https://github.com/makulky/webSecAnalyzer",
       demo: "https://websec-analyzer.vercel.app/"
     },
+    
+
+    {
+      name: "WhisperLink",
+      description: [
+        "Comparte secretos mediante enlaces de un solo uso, cifrados de extremo a extremo en el navegador."
+      ],
+      stack: ["JavaScript", "HTML", "CSS", "Web Crypto API"],
+      link: "https://github.com/makulky/whisperlink",
+      demo: "https://whisperlink-phi.vercel.app/"
+    },
 
     {
       name: "Sistema de Control Horario y Fichaje por Código QR",
