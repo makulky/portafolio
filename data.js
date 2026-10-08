@@ -155,7 +155,7 @@ window.PORTFOLIO = {
         { name: "Spring Boot", level: 80 },
         { name: "Git", level: 90 },
         { name: "Django", level: 75 },
-        { name: "Docker", level: 60 },
+        { name: "Docker", level: 80 },
         { name: "Laravel", level: 75 },
         { name: "Linux", level: 80 }
       ]

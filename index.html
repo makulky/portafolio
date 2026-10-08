@@ -1,47 +1,67 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="verde">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio — Terminal</title>
-  <meta name="description" content="Portafolio personal con estilo de consola retro." />
+  <meta name="description" content="Portafolio personal con estilo de terminal." />
+  <meta name="color-scheme" content="dark light" />
+  <script>try { var t = localStorage.getItem("pf-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=VT323&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="crt">
-    <main class="terminal" id="terminal">
-      <header class="titlebar">
-        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span class="titlebar-text" id="titlebar-text">guest@portfolio: ~</span>
-        <span class="clock" id="clock" aria-hidden="true"></span>
-      </header>
+  <main class="window" id="window">
+    <header class="titlebar">
+      <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="titlebar-text" id="titlebar-text">guest@portfolio: ~</span>
+      <button type="button" class="theme-btn" id="theme-btn" title="Cambiar tema">
+        <span aria-hidden="true">◐</span><span class="theme-btn-label">tema</span>
+      </button>
+    </header>
 
-      <nav class="shortcuts" aria-label="Secciones">
-        <button type="button" data-cmd="about">[ sobre mí ]</button>
-        <button type="button" data-cmd="projects">[ proyectos ]</button>
-        <button type="button" data-cmd="experience">[ experiencia ]</button>
-        <button type="button" data-cmd="skills">[ habilidades ]</button>
-        <button type="button" data-cmd="courses">[ cursos ]</button>
-        <button type="button" data-cmd="contact">[ contacto ]</button>
-        <button type="button" data-cmd="help">[ help ]</button>
-        <button type="button" data-cmd="clear">[ clear ]</button>
-      </nav>
+    <nav class="tabs" aria-label="Secciones">
+      <button type="button" class="tab" data-cmd="about">sobre mí</button>
+      <button type="button" class="tab" data-cmd="projects">proyectos</button>
+      <button type="button" class="tab" data-cmd="experience">experiencia</button>
+      <button type="button" class="tab" data-cmd="skills">habilidades</button>
+      <button type="button" class="tab" data-cmd="courses">cursos</button>
+      <button type="button" class="tab" data-cmd="contact">contacto</button>
+      <span class="tabs-spacer"></span>
+      <button type="button" class="tab tab-ghost" data-cmd="help">help</button>
+      <button type="button" class="tab tab-ghost" data-cmd="clear">clear</button>
+    </nav>
 
-      <section class="screen" id="screen">
-        <div id="output" aria-live="polite"></div>
+    <section class="screen" id="screen">
+      <div id="output" aria-live="polite"></div>
 
-        <form class="prompt-line" id="prompt-form" autocomplete="off">
-          <label for="cmd-input" class="prompt" id="prompt-label">guest@portfolio:~$</label>
-          <div class="input-wrap">
-            <span class="typed" aria-hidden="true"><span id="typed-before"></span><span class="cursor" id="cursor">&nbsp;</span><span id="typed-after"></span></span>
-            <input id="cmd-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" aria-label="Escribe un comando" />
-          </div>
-        </form>
-      </section>
-    </main>
+      <form class="prompt-line" id="prompt-form" autocomplete="off">
+        <label for="cmd-input" class="prompt" id="prompt-label"></label>
+        <div class="input-wrap">
+          <span class="typed" aria-hidden="true"><span id="typed-before"></span><span class="cursor" id="cursor">&nbsp;</span><span id="typed-after"></span><span class="ghost" id="ghost"></span></span>
+          <input id="cmd-input" type="text" spellcheck="false" autocapitalize="off" autocorrect="off" aria-label="Escribe un comando" />
+        </div>
+      </form>
+    </section>
+
+    <footer class="statusbar">
+      <span class="mode" id="sb-mode">inicio</span>
+      <span class="sb-item sb-hint">tema: <span id="sb-theme">verde</span></span>
+      <span class="sb-spacer"></span>
+      <span class="sb-item sb-hint"><span class="kbd">Tab</span> completar</span>
+      <button type="button" class="sb-btn" id="sb-palette"><span class="kbd" id="palette-kbd">Ctrl K</span> comandos</button>
+      <span class="sb-item" id="clock" aria-hidden="true"></span>
+    </footer>
+  </main>
+
+  <div class="palette" id="palette" hidden>
+    <div class="palette-box" role="dialog" aria-modal="true" aria-label="Paleta de comandos">
+      <input id="palette-input" type="text" spellcheck="false" autocomplete="off" placeholder="Busca una sección, comando o tema…" aria-label="Buscar comando" />
+      <ul id="palette-list" role="listbox"></ul>
+      <div class="palette-foot"><span class="kbd">↑↓</span> navegar · <span class="kbd">↵</span> ejecutar · <span class="kbd">esc</span> cerrar</div>
+    </div>
   </div>
 
   <script src="data.js"></script>
