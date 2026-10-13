@@ -10,6 +10,7 @@ window.PORTFOLIO = {
     handle: "miguel",                    // TODO: se usa en el prompt (tunombre@portfolio)
     role: "Desarrollador Full Stack",    // TODO
     location: "Huelva, España",              // TODO
+    photo: "perfil.png",                     // foto de perfil (vacío = iniciales)
     bio: [
       // TODO: cada string es un párrafo
       "Hola, soy desarrollador de software especializado en el ecosistema .NET (C#), Java, JavaScript y bases de datos SQL y NoSQL con sólidos conocimientos en arquitecturas RESTful, backend con Node.js y desarrollo web/móvil (React, Angular, .NET MAUI).",

@@ -75,6 +75,22 @@
     return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
   }
 
+  // Rellena un avatar con la foto de perfil (o las iniciales si no hay o no carga)
+  function fillAvatar(node) {
+    node.textContent = initials(P.name);
+    if (!P.photo) return node;
+    const img = el("img");
+    img.src = P.photo;
+    img.alt = P.name;
+    img.addEventListener("error", () => img.remove());
+    node.append(img); // tapa las iniciales al cargar
+    return node;
+  }
+
+  function avatar(cls) {
+    return fillAvatar(el("div", "avatar" + (cls ? " " + cls : "")));
+  }
+
   const cvLink = P.links.find((l) => /cv/i.test(l.label));
 
   /* ---------- Vistas ---------- */
@@ -205,6 +221,8 @@
     hue,
     paragraphs,
     initials,
+    avatar,
+    fillAvatar,
     tagList,
     projectCard,
     render: {

@@ -6,7 +6,7 @@
   "use strict";
 
   const PF = window.PF;
-  const { P, DATA, el, initials, icon, glyph, norm } = PF;
+  const { P, DATA, el, icon, glyph, norm } = PF;
   const APPS = PF.apps;
 
   const root = document.documentElement;
@@ -485,7 +485,7 @@
     });
     recs.append(startItem("rec", icon("pdf"), APPS.cv.title, "Documento PDF", () => open("cv")));
 
-    $("#start-avatar").textContent = initials(P.name);
+    PF.fillAvatar($("#start-avatar"));
     $("#start-name").textContent = P.name;
   }
 
@@ -687,7 +687,7 @@
     const head = el("div", "widget-head");
     const who = el("div");
     who.append(el("p", "widget-hello", `Hola, soy ${P.name.split(" ")[0]}`), el("p", "widget-role", P.role));
-    head.append(el("div", "avatar avatar-lg", initials(P.name)), who);
+    head.append(PF.avatar("avatar-lg"), who);
     const bio = el("p", "widget-bio", PF.paragraphs(P.bio)[0] || "");
     const actions = el("div", "card-links");
     actions.append(
@@ -815,7 +815,7 @@
   PF.os = { open, close, focus, settings, setSetting, toggleMode, shutdown, lock, WALLPAPERS, ACCENTS };
 
   document.title = `${P.name} — PortfolioOS`;
-  $("#lock-avatar").textContent = initials(P.name);
+  PF.fillAvatar($("#lock-avatar"));
   $("#lock-name").textContent = P.name;
   applySettings();
   renderDesktop();

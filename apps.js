@@ -5,7 +5,7 @@
   "use strict";
 
   const PF = window.PF;
-  const { DATA, P, el, link, btnLink, heading, render, projectCard, paragraphs, initials } = PF;
+  const { DATA, P, el, link, btnLink, heading, render, projectCard, paragraphs } = PF;
 
   /* ---------- Iconos de app (colores planos, estilo Fluent) ---------- */
   const ICONS = {
@@ -88,7 +88,7 @@
     links.append(btnLink("✉ Escríbeme", `mailto:${P.email}`, true));
     P.links.forEach((l) => links.append(btnLink(l.label, l.url)));
     info.append(links);
-    hero.append(el("div", "avatar avatar-xl", initials(P.name)), info);
+    hero.append(PF.avatar("avatar-xl"), info);
 
     const bio = el("section", "about-bio");
     paragraphs(P.bio).forEach((p) => bio.append(el("p", "para", p)));

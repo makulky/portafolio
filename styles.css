@@ -157,6 +157,9 @@ button { font: inherit; color: inherit; cursor: default; }
   background: linear-gradient(135deg, var(--os-accent), color-mix(in srgb, var(--os-accent) 40%, #a855f7));
   user-select: none;
 }
+.avatar { position: relative; overflow: hidden; }
+/* La foto ya viene recortada con un aro: se amplía un poco para ocultarlo */
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
 .avatar-lg { width: 48px; height: 48px; font-size: 17px; }
 .avatar-xl { width: 96px; height: 96px; font-size: 34px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); }
 
