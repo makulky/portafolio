@@ -27,6 +27,29 @@ window.PORTFOLIO = {
 
   projects: [
     {
+      name: "PyFactory",
+      description: [
+        "Propietario y desarrollador de PyFactory, una plataforma para aprender Python programando robots que automatizan una fábrica en 3D, directamente en el navegador y sin instalar nada.",
+        "Incluye 10 lecciones de iniciación con ejecución paso a paso y visualización de variables, un modo historia de 14 niveles (de un simple mover() a laberintos, cadenas de montaje y una fábrica de drones) y un modo sandbox con varios robots a la vez.",
+        "El código Python se ejecuta en un Web Worker con Pyodide (WebAssembly). Cuenta con cuentas de usuario, guardado de partidas en la nube y pago único integrado con Stripe."
+      ],
+      stack: ["JavaScript", "Vite", "Three.js", "Pyodide", "WebAssembly", "CodeMirror", "Supabase", "Stripe", "Netlify"],
+      link: "",
+      demo: "https://pyfactory.es/"
+    },
+
+    {
+      name: "Dron Kiki Studio",
+      description: [
+        "Diseño y desarrollo de la web de Dron Kiki Studio, un servicio de grabación aérea con dron (vídeo 360° y vuelos FPV) en Huelva.",
+        "Sitio de una sola página con intro animada de telemetría, animaciones ligadas al scroll, galería de trabajos filtrable por categoría e imágenes WebP optimizadas."
+      ],
+      stack: ["HTML", "CSS", "JavaScript", "GSAP", "Lenis", "Vercel"],
+      link: "",
+      demo: "https://dronkikistudio.es/"
+    },
+
+    {
       name: "Agendalia",
       description: [
         "Agendalia es una agenda online multiempresa pensada para negocios que trabajan con citas (clínicas, centros de estética, consultas, talleres, academias…).",
