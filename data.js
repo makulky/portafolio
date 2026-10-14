@@ -14,6 +14,7 @@ window.PORTFOLIO = {
     bio: [
       // TODO: cada string es un párrafo
       "Hola, soy desarrollador de software especializado en el ecosistema .NET (C#), Java, JavaScript y bases de datos SQL y NoSQL con sólidos conocimientos en arquitecturas RESTful, backend con Node.js y desarrollo web/móvil (React, Angular, .NET MAUI).",
+      "Soy propietario y desarrollador de PyFactory (pyfactory.es), una plataforma educativa para enseñar a programar en Python de forma práctica y visual: el alumno escribe código para controlar robots que automatizan una fábrica en 3D, todo desde el navegador. He desarrollado tanto la plataforma como su web.",
       "Experiencia práctica diseñando y desplegando soluciones de software reales orientadas a la automatización de procesos.",
       "Proactivo, enfocado en buenas prácticas de código y altamente motivado para aportar valor desde el primer día en equipos ágiles."
     ],
