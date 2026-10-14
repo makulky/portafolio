@@ -22,7 +22,8 @@ window.PORTFOLIO = {
     links: [
       { label: "GitHub",   url: "https://github.com/makulky" },          // TODO
       { label: "LinkedIn", url: "https://www.linkedin.com/in/miguel-figuerola-alonso" }, // TODO
-      { label: "CV (PDF)", url: "https://makulky.github.io/portafolio/CV_Miguel_Figuerola_Alonso.pdf" }
+      // Cambia ?v= cada vez que actualices el PDF para que los navegadores no muestren uno antiguo de su caché
+      { label: "CV (PDF)", url: "https://makulky.github.io/portafolio/CV_Miguel_Figuerola_Alonso.pdf?v=2026-10-14" }
     ]
   },
 

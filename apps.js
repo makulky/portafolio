@@ -351,7 +351,7 @@
   /* ==========================================================
      Visor de PDF (CV)
      ========================================================== */
-  const CV_FILE = decodeURIComponent((PF.cvUrl.split("/").pop() || "CV.pdf"));
+  const CV_FILE = decodeURIComponent((PF.cvUrl.split(/[?#]/)[0].split("/").pop() || "CV.pdf"));
 
   function cvApp(body) {
     const root = el("div", "pdf");
