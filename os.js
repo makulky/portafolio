@@ -16,7 +16,7 @@
   const isTablet = () => tabletMQ.matches;
   const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
-  const DESKTOP_APPS = ["about", "projects", "experience", "skills", "courses", "contact", "cv", "terminal", "settings"];
+  const DESKTOP_APPS = ["about", "projects", "experience", "skills", "courses", "contact", "cv", "games", "terminal", "settings"];
   const PINNED = ["about", "projects", "terminal", "contact", "cv"];
   const MIN_W = 340;
   const MIN_H = 240;

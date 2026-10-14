@@ -272,6 +272,15 @@
           return [rich([{ text: "✓ ", cls: "primary" }, "Abriendo ", { text: apps[id].title, cls: "accent" }, " …"])];
         },
       },
+      games: {
+        desc: "minijuegos: snake y buscaminas",
+        aliases: ["juegos"],
+        run: () => [
+          heading("Juegos"),
+          rich([cmdButtonInline("open snake", "snake"), "        clásico arcade: come y no choques"]),
+          rich([cmdButtonInline("open buscaminas", "buscaminas"), "   despeja el tablero sin pisar una mina"]),
+        ],
+      },
       theme: {
         desc: "cambia los colores (ej: theme retro)",
         aliases: ["tema"],

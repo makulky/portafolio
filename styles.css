@@ -1310,6 +1310,106 @@ button { font: inherit; color: inherit; cursor: default; }
 }
 
 /* ==========================================================
+   Juegos
+   ========================================================== */
+.games-folder { display: flex; flex-direction: column; height: 100%; }
+.games-grid { flex: 1; }
+
+.game { display: flex; flex-direction: column; height: 100%; color: var(--fg); font-size: 13px; outline: none; user-select: none; }
+.game-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--os-stroke); }
+.game-spacer { flex: 1; }
+.game-stat { color: var(--os-text-2); }
+.game-num { margin-left: 4px; color: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+.game-probe { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  background: color-mix(in srgb, var(--os-solid) 72%, transparent);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.game-overlay[hidden] { display: none; }
+.game-ov-title { margin: 0; font-size: 26px; font-weight: 700; }
+.game-ov-text { margin: 0; max-width: 32ch; color: var(--os-text-2); }
+.game-ov-hint { margin: 4px 0 0; color: var(--os-text-3); font-size: 12px; }
+
+/* Snake */
+.snake-stage { position: relative; flex: 1; min-height: 0; display: grid; place-items: center; margin: 12px; touch-action: none; }
+.snake-canvas { display: block; border: 1px solid var(--os-stroke-win); border-radius: 6px; }
+.snake-pad { display: none; grid-template-columns: repeat(3, 56px); grid-template-rows: repeat(2, 48px); gap: 6px; justify-content: center; padding: 0 0 14px; }
+.pad-btn { font-size: 18px; color: var(--fg); background: var(--os-card); border: 1px solid var(--os-stroke-win); border-radius: 10px; touch-action: none; }
+.pad-btn:active { background: var(--os-selected); }
+.pad-up { grid-column: 2; }
+.pad-left { grid-column: 1; grid-row: 2; }
+.pad-down { grid-column: 2; grid-row: 2; }
+.pad-right { grid-column: 3; grid-row: 2; }
+@media (pointer: coarse) { .snake-pad { display: grid; } }
+
+/* Buscaminas */
+.mines-level { padding: 5px 8px; font: inherit; color: var(--fg); background: var(--os-input); border: 1px solid var(--os-stroke-win); border-radius: 4px; }
+.mines-level option { color: #000; }
+.mines-best { color: var(--os-text-2); font-size: 12px; }
+.mines-panel { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px 0; }
+.mines-lcd { min-width: 3.6ch; padding: 2px 8px; font: 700 22px/1.2 var(--mono); color: #ff4d4d; text-align: center; background: #120a0a; border-radius: 4px; letter-spacing: 1px; }
+.mines-face { width: 40px; height: 40px; font-size: 22px; line-height: 1; background: var(--os-card); border: 1px solid var(--os-stroke-win); border-radius: 8px; }
+.mines-face:hover { background: var(--os-card-hover); }
+.mines-wrap { flex: 1; min-height: 0; display: flex; padding: 8px; overflow: auto; }
+.mines-board {
+  --cell: 28px;
+  margin: auto; /* centrado que no recorta si el tablero desborda */
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  grid-auto-rows: var(--cell);
+  gap: 2px;
+  padding: 6px;
+  background: var(--os-stroke-win);
+  border-radius: 6px;
+}
+.mc {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: 700 calc(var(--cell) * 0.55) / 1 var(--os-font);
+  color: var(--fg);
+  background: color-mix(in srgb, var(--os-accent) 55%, var(--os-solid));
+  border: 0;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -2px 0 rgba(0, 0, 0, 0.22);
+  touch-action: manipulation;
+}
+.mc:hover:not(.open) { filter: brightness(1.15); }
+.mc:focus-visible { outline: 2px solid var(--os-text); outline-offset: -2px; position: relative; z-index: 1; }
+.mc.open { background: var(--os-solid); box-shadow: none; cursor: default; }
+.mc.flag, .mc.mine, .mc.wrong { font-size: calc(var(--cell) * 0.5); }
+.mc.boom { background: #e5484d; }
+.mc.wrong { background: color-mix(in srgb, #e5484d 30%, var(--os-solid)); }
+.mc.n1 { color: #4c9aff; }
+.mc.n2 { color: #3fb950; }
+.mc.n3 { color: #f85149; }
+.mc.n4 { color: #a371f7; }
+.mc.n5 { color: #d29922; }
+.mc.n6 { color: #39c5cf; }
+.mc.n7 { color: var(--fg); }
+.mc.n8 { color: var(--os-text-3); }
+[data-mode="light"] .mc.n1 { color: #0b5cd5; }
+[data-mode="light"] .mc.n2 { color: #1a7f37; }
+[data-mode="light"] .mc.n3 { color: #cf222e; }
+[data-mode="light"] .mc.n4 { color: #6639ba; }
+[data-mode="light"] .mc.n5 { color: #9a6700; }
+[data-mode="light"] .mc.n6 { color: #0e7d86; }
+.mines-mode { display: none; }
+@media (pointer: coarse) { .mines-mode { display: inline-flex; } }
+.mines-status { min-height: 1.5em; margin: 0; padding: 0 14px 12px; color: var(--os-text-2); text-align: center; }
+
+/* ==========================================================
    Movimiento reducido
    ========================================================== */
 @media (prefers-reduced-motion: reduce) {

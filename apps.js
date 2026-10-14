@@ -19,6 +19,9 @@
     gear: `<circle cx="24" cy="24" r="15" fill="none" stroke="#6e6e6e" stroke-width="7" stroke-dasharray="5.89 5.89"/><circle cx="24" cy="24" r="13" fill="#8f8f8f"/><circle cx="24" cy="24" r="5.5" fill="#e8e8e8"/>`,
     pdf: `<path d="M11 4h19l11 11v26a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z" fill="#f3f3f3"/><path d="M30 4v8a3 3 0 0 0 3 3h8z" fill="#c8c8c8"/><rect x="4" y="24" width="29" height="13" rx="2.5" fill="#d13438"/><text x="18.5" y="33.6" font-size="8.5" font-weight="700" text-anchor="middle" fill="#fff" font-family="Segoe UI, Arial, sans-serif">PDF</text>`,
     globe: `<circle cx="24" cy="24" r="19" fill="#0f6cbd"/><path d="M5 24h38M24 5c6.5 6 6.5 32 0 38M24 5c-6.5 6-6.5 32 0 38M8 14h32M8 34h32" fill="none" stroke="#9fd0ff" stroke-width="2.2"/>`,
+    gamepad: `<path d="M14 13h20c6 0 10 5 11 12l1 7c.6 4.5-4.3 7.2-7.6 4.1L33 31H15l-5.4 5.1C6.3 39.2 1.4 36.5 2 32l1-7c1-7 5-12 11-12z" fill="#5c5cc8"/><path d="M14 19v8m-4-4h8" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="20.5" r="2.4" fill="#ffd166"/><circle cx="37" cy="25.5" r="2.4" fill="#ef6f6c"/>`,
+    snake: `<rect x="4" y="4" width="40" height="40" rx="8" fill="#16302a"/><path d="M12 34V22a5 5 0 0 1 5-5h9a5 5 0 0 0 5-5v0" fill="none" stroke="#4ade80" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="31" cy="12" r="4.2" fill="#86efac"/><circle cx="35" cy="33" r="4" fill="#f25b5b"/>`,
+    mine: `<rect x="4" y="4" width="40" height="40" rx="8" fill="#c8ccd2"/><rect x="4" y="4" width="40" height="40" rx="8" fill="none" stroke="#9aa0a8" stroke-width="2"/><path d="M24 10v28M10 24h28M14 14l20 20M34 14 14 34" stroke="#222" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="24" r="9" fill="#222"/><circle cx="21" cy="21" r="2.6" fill="#fff"/>`,
   };
 
   function icon(name) {
@@ -146,7 +149,7 @@
 
     // Panel lateral: accesos a las demás secciones
     const side = $(".ex-side");
-    [["projects", "Proyectos"], ["about", "Sobre mí"], ["experience", "Experiencia"], ["skills", "Habilidades"], ["courses", "Cursos"], ["contact", "Contacto"], ["cv", "CV"]].forEach(([id, label]) => {
+    [["projects", "Proyectos"], ["about", "Sobre mí"], ["experience", "Experiencia"], ["skills", "Habilidades"], ["courses", "Cursos"], ["contact", "Contacto"], ["cv", "CV"], ["games", "Juegos"]].forEach(([id, label]) => {
       const b = el("button", id === "projects" ? "current" : null);
       b.type = "button";
       b.append(icon(PF.apps[id].icon), el("span", null, label));
@@ -405,6 +408,9 @@
     curriculum: "cv", pdf: "cv",
     cmd: "terminal", bash: "terminal", shell: "terminal", consola: "terminal",
     ajustes: "settings", configuracion: "settings", config: "settings",
+    juegos: "games", juego: "games",
+    serpiente: "snake",
+    buscaminas: "minesweeper", minas: "minesweeper", mines: "minesweeper",
   };
 
   const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[\s_-]+/g, "");
